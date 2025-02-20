@@ -37,9 +37,18 @@ fi
 echo "Installing nvm..."
 if [ ! -d "$HOME/.nvm" ]; then
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+  \. "$HOME/.nvm/nvm.sh"
   echo "Done!\n"
 else
   echo "nvm already installed. Skipping installation.\n"
+fi
+
+echo "Installing Node.js..."
+if ! command -v node >/dev/null 2>&1; then
+  nvm install --lts
+  echo "Done!\n"
+else
+  echo "Node.js already installed. Skipping installation.\n"
 fi
 
 echo "Installing saml2aws..."
