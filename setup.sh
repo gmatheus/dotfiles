@@ -3,7 +3,7 @@ echo "Setting up your Mac...\n"
 
 echo "Installing Oh My Zsh..."
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   echo "Done!\n"
 else
   echo "Oh My Zsh already installed. Skipping installation.\n"
@@ -67,3 +67,7 @@ if [ -e "$HOME/.zshrc" ]; then
 fi
 ln -sw "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
 echo "Done!\n"
+
+# Switch to zsh
+echo "Done! Switching to zsh..."
+exec zsh
