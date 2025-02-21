@@ -32,7 +32,7 @@ To set up your environment using these dotfiles, follow the instructions below:
    sh ./setup.sh
    ```
 
-   > ⚠️ **Note:** Running this script will overwrite your existing `.zshrc` file with the configuration from `.dotfiles/.zshrc`. A backup of your original `.zshrc` file will be saved as `~/.zshrc-bkp` for restoration if needed.
+   > ⚠️ **Note:** Running this script will overwrite your existing `.zshrc` file with the configuration from `.dotfiles/.zshrc`. A backup of your original `.zshrc` file will be saved as `~/.zshrc.bkp-*` for restoration if needed.
 
 ## Uninstall
 
@@ -44,7 +44,7 @@ If you want to remove the applications installed and revert your environment sta
    sh ./uninstall.sh
    ```
 
-   > ⚠️ **Note:** The script does not automatically restore your original `.zshrc` file. To restore it, use the backup located at `~/.zshrc-bkp`.
+   > ⚠️ **Note:** The script does not automatically restore your original `.zshrc` file. To restore it, use the backup located at `~/.zshrc.bkp-*`.
 
 Once done, you can run the setup script again to set up your environment.
 

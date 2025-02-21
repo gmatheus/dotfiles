@@ -59,11 +59,13 @@ else
   echo "saml2aws already installed. Skipping installation.\n"
 fi
 
-# Backup .zshrc if it exists, then symlinks the .dotfiles version
+# Backup .zshrc if it exists, then symlink the .dotfiles version
 echo "Syncing .zshrc..."
 if [ -e "$HOME/.zshrc" ]; then
-  mv "$HOME/.zshrc" "$HOME/.zshrc-bkp"
-  echo "Your .zshrc was backed up to $HOME/.zshrc-bkp"
+  TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+  cp "$HOME/.zshrc" "$HOME/.zshrc.bkp-$TIMESTAMP"
+  rm "$HOME/.zshrc"
+  echo "Your .zshrc was backed up to $HOME/.zshrc.bkp-$TIMESTAMP"
 fi
 ln -sw "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
 echo "Done!\n"
