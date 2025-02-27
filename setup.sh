@@ -51,6 +51,16 @@ else
   echo "Node.js already installed. Skipping installation.\n"
 fi
 
+echo "Installing AWS CLI..."
+if ! command -v aws >/dev/null 2>&1; then
+  curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+  sudo installer -pkg AWSCLIV2.pkg -target /
+  rm AWSCLIV2.pkg
+  echo "Done!\n"
+else
+  echo "AWS CLI already installed. Skipping installation.\n"
+fi
+
 echo "Installing saml2aws..."
 if ! command -v saml2aws >/dev/null 2>&1; then
   brew install saml2aws

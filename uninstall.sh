@@ -52,6 +52,14 @@ else
   echo "Node.js is not installed. Skipping uninstallation.\n"
 fi
 
+echo "Uninstalling AWS CLI..."
+if command -v aws >/dev/null 2>&1; then
+  sudo rm -rf /usr/local/aws-cli
+  echo "Done!\n"
+else
+  echo "AWS CLI is not installed. Skipping uninstallation.\n"
+fi
+
 echo "Uninstalling saml2aws..."
 if command -v saml2aws >/dev/null 2>&1; then
   brew uninstall saml2aws

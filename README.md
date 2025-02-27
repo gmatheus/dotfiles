@@ -7,7 +7,7 @@ This repository contains my personal configuration files (dotfiles) and a [setup
 - [Homebrew](https://brew.sh/)
 - [nvm](https://github.com/nvm-sh/nvm) with [autoload](https://github.com/nvm-sh/nvm?tab=readme-ov-file#zsh) configuration
 - [Node.js](https://nodejs.org/en/download) LTS version
-- [saml2aws](https://github.com/Versent/saml2aws)
+- [awscli](https://aws.amazon.com/cli/) and [saml2aws](https://github.com/Versent/saml2aws)
 - Custom commands and aliases
 
 ## Setup
