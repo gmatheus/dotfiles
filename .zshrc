@@ -171,4 +171,4 @@ glpr() {
 }
 
 # saml2aws - https://github.com/Versent/saml2aws?tab=readme-ov-file#macOS
-alias mfa='saml2aws login'
+alias aws_login='saml2aws login --cache-saml'
