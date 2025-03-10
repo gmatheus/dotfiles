@@ -172,3 +172,9 @@ glpr() {
 
 # saml2aws - https://github.com/Versent/saml2aws?tab=readme-ov-file#macOS
 alias aws_login='saml2aws login --cache-saml'
+
+# zsh
+zconfig() {
+  local editor=${$(command -v code &> /dev/null && echo "code"):-"open"}
+  $editor "$HOME/.zshrc" "$HOME/.zprofile" "$HOME/.zshenv"
+}
