@@ -46,6 +46,7 @@ fi
 
 echo "Uninstalling Node.js..."
 if command -v node >/dev/null 2>&1; then
+  npm config delete script-shell
   nvm uninstall --lts
   echo "Done!\n"
 else

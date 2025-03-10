@@ -46,6 +46,7 @@ fi
 echo "Installing Node.js..."
 if ! command -v node >/dev/null 2>&1; then
   nvm install --lts
+  npm config set script-shell $(which zsh)
   echo "Done!\n"
 else
   echo "Node.js already installed. Skipping installation.\n"
