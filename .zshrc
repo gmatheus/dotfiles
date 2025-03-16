@@ -153,6 +153,15 @@ load-nvmrc
 #           CUSTOM COMMANDS           #
 #######################################
 
+# dotfiles
+alias dotfiles='cd $HOME/.dotfiles'
+
+# zsh
+zconfig() {
+  local editor=${$(command -v code &> /dev/null && echo "code"):-"open"}
+  $editor "$HOME/.zshrc" "$HOME/.zprofile" "$HOME/.zshenv"
+}
+
 # git
 alias s='git status'
 alias glp="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
@@ -172,9 +181,3 @@ glpr() {
 
 # saml2aws - https://github.com/Versent/saml2aws?tab=readme-ov-file#macOS
 alias aws_login='saml2aws login --cache-saml'
-
-# zsh
-zconfig() {
-  local editor=${$(command -v code &> /dev/null && echo "code"):-"open"}
-  $editor "$HOME/.zshrc" "$HOME/.zprofile" "$HOME/.zshenv"
-}
