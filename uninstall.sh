@@ -53,6 +53,23 @@ else
   echo "Node.js is not installed. Skipping uninstallation.\n"
 fi
 
+echo "Uninstalling golangci-lint..."
+if command -v golangci-lint >/dev/null 2>&1; then
+  rm -f "$(go env GOPATH)/bin/golangci-lint" 2>/dev/null || true
+  echo "Done!\n"
+else
+  echo "golangci-lint is not installed. Skipping uninstallation.\n"
+fi
+
+echo "Uninstalling Go..."
+if command -v go >/dev/null 2>&1; then
+  sudo rm -rf /usr/local/go
+  echo "Done!\n"
+else
+  echo "Go is not installed. Skipping uninstallation.\n"
+fi
+
+
 echo "Uninstalling AWS CLI..."
 if command -v aws >/dev/null 2>&1; then
   sudo rm -rf /usr/local/aws-cli

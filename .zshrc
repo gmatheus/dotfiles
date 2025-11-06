@@ -121,6 +121,11 @@ prompt_dir() {
 #                TOOLS                #
 #######################################
 
+# Go - https://go.dev/
+if command -v go >/dev/null 2>&1; then
+  export PATH="$PATH:$(go env GOPATH)/bin"
+fi
+
 # nvm - https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
