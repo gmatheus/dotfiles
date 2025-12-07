@@ -55,7 +55,7 @@ fi
 
 echo "Uninstalling golangci-lint..."
 if command -v golangci-lint >/dev/null 2>&1; then
-  rm -f "$(go env GOPATH)/bin/golangci-lint" 2>/dev/null || true
+  rm -f "$(go env GOPATH)/bin/golangci-lint"
   echo "Done!\n"
 else
   echo "golangci-lint is not installed. Skipping uninstallation.\n"
@@ -64,6 +64,7 @@ fi
 echo "Uninstalling Go..."
 if command -v go >/dev/null 2>&1; then
   sudo rm -rf /usr/local/go
+  sudo rm -f /etc/paths.d/go
   echo "Done!\n"
 else
   echo "Go is not installed. Skipping uninstallation.\n"

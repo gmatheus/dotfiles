@@ -57,10 +57,10 @@ if ! command -v go >/dev/null 2>&1; then
   GO_VERSION=$(curl -s https://go.dev/VERSION?m=text | head -1)
   GO_ARCH=$([ "$(uname -m)" = "x86_64" ] && echo "amd64" || echo "arm64")
   
-  curl -LO "https://go.dev/dl/${GO_VERSION}.darwin-${GO_ARCH}.tar.gz"
-  sudo rm -rf /usr/local/go
-  sudo tar -C /usr/local -xzf "${GO_VERSION}.darwin-${GO_ARCH}.tar.gz"
-  rm "${GO_VERSION}.darwin-${GO_ARCH}.tar.gz"
+  curl -LO "https://go.dev/dl/${GO_VERSION}.darwin-${GO_ARCH}.pkg"
+  sudo installer -pkg "${GO_VERSION}.darwin-${GO_ARCH}.pkg" -target /
+  rm "${GO_VERSION}.darwin-${GO_ARCH}.pkg"
+  eval "$(/usr/libexec/path_helper)"
   echo "Done!\n"
 else
   echo "Go already installed. Skipping installation.\n"
@@ -68,7 +68,6 @@ fi
 
 echo "Installing golangci-lint..."
 if ! command -v golangci-lint >/dev/null 2>&1; then
-  export PATH="/usr/local/go/bin:$PATH"
   curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b $(go env GOPATH)/bin
   echo "Done!\n"
 else
