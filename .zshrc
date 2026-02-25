@@ -171,17 +171,20 @@ zconfig() {
 alias s='git status'
 alias glp="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 alias gfr='git fetch origin $(git_current_branch) && git reset --hard origin/$(git_current_branch)'
+alias gpocb='git push origin $(git_current_branch)'
 
 glpr() {
   local from_commit=${1:-dev}
   local to_commit=${2:-HEAD}
-
-  git log --oneline --decorate='no' --reverse $from_commit..$to_commit | while read -r commit; do
+  local output=""
+  while read -r commit; do
     local short_hash=$(echo $commit | awk '{print $1}')
     local message=$(git show --format=%s -s $short_hash)
     local type_scope=$(echo $message | sed -E 's/^(.*\([^)]+\)): (.*)$/`\1`: \2/')
-    echo "- $short_hash $type_scope"
-  done
+    output+="- $short_hash $type_scope\n"
+  done < <(git log --oneline --decorate='no' --reverse $from_commit..$to_commit)
+  echo -e "$output"
+  echo -e "$output" | pbcopy
 }
 
 # saml2aws - https://github.com/Versent/saml2aws?tab=readme-ov-file#macOS
