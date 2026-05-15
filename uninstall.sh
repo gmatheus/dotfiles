@@ -87,4 +87,12 @@ else
   echo "saml2aws is not installed. Skipping uninstallation.\n"
 fi
 
+echo "Uninstalling GitHub CLI..."
+if command -v gh >/dev/null 2>&1; then
+  brew uninstall gh
+  echo "Done!\n"
+else
+  echo "GitHub CLI is not installed. Skipping uninstallation.\n"
+fi
+
 echo "Now you can run \`sh ./setup.sh\` to set up your environment again.\n"

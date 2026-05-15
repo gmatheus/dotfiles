@@ -9,6 +9,7 @@ This repository contains my personal configuration files (dotfiles) and a [setup
 - [Node.js](https://nodejs.org/en/download) LTS version
 - [Go](https://go.dev/) latest stable version with [golangci-lint](https://golangci-lint.run/)
 - [awscli](https://aws.amazon.com/cli/) and [saml2aws](https://github.com/Versent/saml2aws)
+- [GitHub CLI](https://cli.github.com/)
 - Custom commands and aliases
 
 ## Setup

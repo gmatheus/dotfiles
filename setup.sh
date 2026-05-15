@@ -92,6 +92,14 @@ else
   echo "saml2aws already installed. Skipping installation.\n"
 fi
 
+echo "Installing GitHub CLI..."
+if ! command -v gh >/dev/null 2>&1; then
+  brew install gh
+  echo "Done!\n"
+else
+  echo "GitHub CLI already installed. Skipping installation.\n"
+fi
+
 # Backup .zshrc if it exists, then symlink the .dotfiles version
 echo "Syncing .zshrc..."
 if [ -e "$HOME/.zshrc" ]; then
